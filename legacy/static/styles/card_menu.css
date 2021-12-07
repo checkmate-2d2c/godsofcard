@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../font/my_font.ttf');
+    
+}
+
+body {
+    background-image: url("../card-menu-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-family: cursive;
+    color: wheat;
+}
+
+.banner {
+    width: 100%;
+    height:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    height: 800px;
+}
+.btn {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    height: 1600px;
+}
+
+.btn input {
+    width: 20vw;
+    height: 100px;
+    font-size: 50px;
+    border: none;
+    border-radius: 20px;
+    background-color: violet;
+    color: wheat;
+}

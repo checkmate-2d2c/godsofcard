@@ -1,0 +1,26 @@
+<div class="submit-container">
+    <div class="subcontainer">
+        <span>Name: <input type="text" id="name-input" style="margin-left: 2px;"></span><br>
+        <span>Tier:  
+            <select id="tier-input" style="margin-left: 20px;">
+                <option selected disabled>Tier</option>
+                <option value="">None</option>
+                <option value="S">S</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </span><br>
+        <span>Anime: <input type="text" id="anime-input"></span><br>
+        <!--<span>HP: <input type="text" id="card_name"></span><br>
+        <span>STR: <input type="text" id="card_name"> - <input type="text" id="card_name"></span><br>
+        <span>DEF: <input type="text" id="card_name"> - <input type="text" id="card_name"></span><br>
+        <span>AGI: <input type="text" id="card_name"> - <input type="text" id="card_name"></span><br>!-->
+        <span>File: <input type="file" id="card-input" style="margin-left: 22px;" onchange="change_preview(this.files[0])" accept="image/png, image/jpeg, image/jpg, image/gif"></span><br>
+        <button onclick="submit()">Submit</button>
+    </div>
+    <div class="image-preview border">
+        <img src="" alt="">
+    </div>
+</div>

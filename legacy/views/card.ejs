@@ -1,0 +1,44 @@
+<%- include('header', {title: "Card", css: "card"}) -%>
+
+<div class="loading hide">
+    <h1>Loading</h1>
+</div>
+<div id="content-container" class="">
+    <p style="color:white; right:10px;position: absolute;margin-top:10px" id="remaining">剩餘點數 :</p>
+    <div style="width: 100%; text-align: center; color: white;">
+        <h3>抽牌活動</h>
+        <div style="width: 10%; border: white 2px solid; margin: auto;"></div>
+    </div>
+
+    <div class="content-container">
+        <div class="events">
+        </div>
+        <div class="cd-container">
+            <br>
+            <div class="event_card_display" >
+                <div class="arrow-container">
+                    <i class="fas fa-chevron-left" id="left-nav"></i>
+                    <i class="fas fa-chevron-right" id="right-nav"></i>
+                  </div>
+                <h2>Loading</h2>
+               <img src="" alt="Loading" class="">
+            </div>
+            <br>
+            <div class="eventdate">
+                <p></p>
+            </div>
+        </div>
+    
+        <div class="sb-container">
+            <div style="color: white;" class="probability-container">
+            </div>
+            <div class="draw-button">
+                <button id="single-draw">單抽</button>
+                <button id="ten-draw" class="hide">十連抽</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts/card.js"></script>
+<%- include('footer') -%>

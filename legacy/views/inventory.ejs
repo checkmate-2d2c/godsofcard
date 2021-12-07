@@ -1,0 +1,25 @@
+<%- include('header', {title: "Inventory", css: "inventory"}) -%>
+<br>
+<div class="title">
+    <h1>圖鑑</h1>
+    <div></div>
+</div><br>
+<div class="filter">
+    <input type="text" id="name-search" placeholder="Character Name">
+    <input type="text" id="anime-search" placeholder="Anime Name">
+    <select id="tier-search">
+        <option selected disabled>Tier</option>
+        <option value="">None</option>
+        <option value="S">S</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+      </select>
+    <button id="search">Search</button>
+</div><br>
+<div class="card-display">
+
+</div>
+<script src="scripts/inventory.js"></script>
+<%- include('footer') -%>

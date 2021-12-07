@@ -1,0 +1,133 @@
+.joinbutton{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 90%;
+    height: 50px;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 20px;
+    left: calc(10%/2);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(/images/community/background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-width: 1500px;
+}
+
+.main-invitebox{
+    position: relative;
+    margin: auto;
+    width: 1000px;
+    height: 500px;
+    background: #232222;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+    background-size: auto;
+    border-radius: 16px;
+    opacity: 0.8;
+    color: white;
+    display: grid;
+    grid-template-columns: 300px auto;
+    
+}
+
+.main-invitebox .imgBx{
+    width: auto;
+    height:t 100%;
+    margin:auto;
+}        
+
+.main-invitebox .content{
+    color: white;
+    margin: auto;
+    margin-top: 30px;
+    height: 100%;
+    font-weight: bold;
+}
+.partner-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    max-width: 1800px;
+    margin: auto;
+}
+
+.sub-invitebox{
+    position: relative;
+    width: 695px;
+    height: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #232222;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: 700px 400px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: auto;
+    color: white;
+}
+
+.sub-invitebox .content {
+    width: 100%;
+}
+
+.virtualtransmissionbase {
+    background-image: url(/images/community/vtb_background.png);
+    color: black !important;
+}
+
+@media only screen and (max-width: 720px) {
+    body {
+        min-width: 400px;
+    }
+
+    .main-invitebox {
+        width: 90%;
+        align-items: start;
+    }
+    .main-invitebox .imgBx img{
+        transform: scale(0.8);
+    }   
+    .main-invitebox .content .title {
+        height: 160px;
+        display: flex;
+        align-items: center;
+    }
+    .main-invitebox .content .text {
+        position: absolute;
+        top: 200px;
+        left: 40px;
+    }
+
+    .partner-container {
+        grid-template-columns: 100%;
+        row-gap: 20px;
+    }
+
+    .sub-invitebox {
+        width: 90%
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main-{
+        display: block;
+    }
+    
+}

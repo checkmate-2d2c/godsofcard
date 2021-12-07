@@ -1,0 +1,40 @@
+body {
+    background-color: gray;
+}
+
+.item-selection {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.item-selection .card-container, .item-selection .tool-container {
+    width: 80%;
+    height: 210px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-selection .card-container img{
+    width: 100px;
+    height: 200px;
+    margin-left: 10px;
+}
+
+.item-selection .btn-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-selection #ready-btn {
+    width: 200px;
+    height: 75px;
+    margin: auto;
+}

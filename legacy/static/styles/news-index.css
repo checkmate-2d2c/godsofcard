@@ -1,0 +1,85 @@
+@font-face {
+    font-family: myounghk;
+    src: url(/fonts/myounghk.otf);
+}
+
+body {
+    background-color: rgb(41, 41, 41);
+}
+
+a:hover {
+    text-decoration: none;
+  }
+
+.news-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news-title h1{
+    color: white;
+    font-size: 50px;
+    font-family: myounghk;
+}
+
+.news-title div {
+    width: 180px;
+    border: white 2px solid;
+}
+
+.news-container {
+    width:90%;
+    margin: auto;
+}
+
+.news-container .content {
+    height: 200px;
+    width: 100%;
+    border: white 1px solid;
+    margin-top: 40px;
+    display: inline-grid;
+    grid-template-columns: 20% 80%;
+    text-decoration: none;
+}
+
+.news-container .content div {
+    border: white 1px solid;
+    height:100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+.news-container .content .news-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
+}
+
+.news-container .content .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+@media only screen and (max-width: 720px) {
+    body {
+        min-width: 400px;
+    }
+    .news-container .content h1{
+        font-size: 30px;
+    }
+    .news-container .content .news-icon {
+        font-size: 30px;
+    }
+
+    .news-container .content {
+        height: 100px;
+    }
+}
