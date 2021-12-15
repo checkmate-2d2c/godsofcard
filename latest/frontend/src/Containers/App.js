@@ -1,8 +1,8 @@
-import main_menu from '../Containers/main_menu';
+import NavigationBar from '../components/NavigationBar';
 
 function App() {
   return (
-    <div>hello world!</div>
+    <NavigationBar></NavigationBar>
   );
 }
 
