@@ -1,8 +1,11 @@
-import NavigationBar from '../components/NavigationBar';
+import { BrowserRouter } from 'react-router-dom';
+import PageRouter from './PageRouter';
 
 function App() {
   return (
-    <NavigationBar></NavigationBar>
+    <BrowserRouter>
+      <PageRouter />
+    </BrowserRouter>
   );
 }
 
