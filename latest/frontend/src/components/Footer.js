@@ -22,9 +22,9 @@ const Footer = (props) => {
           <h2>網頁資訊</h2>
           <ul className="box">
             <li><a href="/#">主頁</a></li>
-            <li><a href="/#"> 抽卡</a></li>
-            <li><a href="/#"> 圖鑒</a></li>
-            <li><a href="/#"> 問題</a></li>
+            <li><a href="/#">抽卡</a></li>
+            <li><a href="/#">圖鑒</a></li>
+            <li><a href="/#">問題</a></li>
           </ul>
         </li>
         <li className="box">
