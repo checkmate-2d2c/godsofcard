@@ -316,13 +316,15 @@
     
 }
 
-.cardevent .arrow-container i {
-    position: absolute;
+.cardevent .arrow-container #top-nav {
+    position: absoulte;
     z-index: 3;
 }
 
 .cardevent .arrow-container #bottom-nav {
     bottom: 7%;
+    position: absolute;
+    z-index: 3;
 }
 
 .description-container {

@@ -38,6 +38,7 @@ const LatetestCard = () => {
 
   useEffect(() => {
     setDefaultCards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -48,7 +49,7 @@ const LatetestCard = () => {
         <FontAwesomeIcon icon={faChevronRight} id="right-nav" onClick={() => moveCards('R')}/>
       </div>
       <div className="card-container">
-        {cards.display.map(({src, className}) => <img src={src} className={className} />)}
+        {cards.display.map(({ src, className }) => <img src={src} alt="" className={className} />)}
       </div>
     </div>
   );

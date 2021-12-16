@@ -10,10 +10,6 @@ import CardEvent from './CardEvent';
 
 import '../static/styles/MainMenu.css';
 
-
-const cardevents = ["/images/cards/events/event1.png",
-                    "/images/cards/events/event2.png"];
-
 const MainMenu = (props) => {
   const [splashClass, setSplashClass] = useState('splash');
 
@@ -21,6 +17,7 @@ const MainMenu = (props) => {
     setTimeout(() => {
       setSplashClass(`${splashClass} display-none`);
     }, 2000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -30,7 +27,7 @@ const MainMenu = (props) => {
         <h3 className="fade-in">それより 全部手放して 周リある限り操ってみて　この世界の真の神にならない？</h3>
         <h2 className="fade-in">卡牌之神 God Of Card</h2>
       </div>
-      <img src={bannerImg} className="banner" />
+      <img src={bannerImg} alt="" className="banner" />
       <div className="latestnews">
         <span className="title"><FontAwesomeIcon icon={faSatelliteDish} style={{fontSize: '24px', color: 'white'}} /> 最新消息 Latest News</span>
         <div className="content-container" style={{color: 'white'}}>
@@ -62,13 +59,13 @@ const MainMenu = (props) => {
         </div>
         
         <div className="image-content">
-          <img src={ricImg} style={{width: '30%'}} />
+          <img src={ricImg} alt="" style={{width: '30%'}} />
         </div>
       </div>
       <br />
       <div className="description-container right">
         <div className="image-content">
-          <img src={checkmateImg} width="60%" />
+          <img src={checkmateImg} alt="" width="60%" />
         </div>
         <div className="text-content">
           <span><FontAwesomeIcon icon={faDiscord} />&nbsp;伺服器介紹 Discord Server Introduction</span>

@@ -12,27 +12,27 @@ const Footer = (props) => {
         <li className="box">
           <h2>卡牌之神</h2>
           <ul className="box">
-            <li><a href="#">Discord 伺服器 : 雀可美特討論區</a></li>
-            <li><a href="#">開發者 : shr00m#7911, EFunLee#7777</a></li>
-            <li><a href="#">版本 : test1.0</a></li>
-            <li><a href="#">更新日期 : 28 / 10</a></li>
+            <li><a href="/#">Discord 伺服器 : 雀可美特討論區</a></li>
+            <li><a href="/#">開發者 : shr00m#7911, EFunLee#7777</a></li>
+            <li><a href="/#">版本 : test1.0</a></li>
+            <li><a href="/#">更新日期 : 28 / 10</a></li>
           </ul>
         </li>
         <li className="box">
           <h2>網頁資訊</h2>
           <ul className="box">
-            <li><a href="#">主頁</a></li>
-            <li><a href="#"> 抽卡</a></li>
-            <li><a href="#"> 圖鑒</a></li>
-            <li><a href="#"> 問題</a></li>
+            <li><a href="/#">主頁</a></li>
+            <li><a href="/#"> 抽卡</a></li>
+            <li><a href="/#"> 圖鑒</a></li>
+            <li><a href="/#"> 問題</a></li>
           </ul>
         </li>
         <li className="box">
           <h2>條款與及聲明</h2>
           <ul className="box">
-            <li><a href="#">版權</a></li>
-            <li><a href="#">免責聲明</a></li>
-            <li><a href="#">投訴</a></li>
+            <li><a href="/#">版權</a></li>
+            <li><a href="/#">免責聲明</a></li>
+            <li><a href="/#">投訴</a></li>
           </ul>
         </li>
       </ul>
