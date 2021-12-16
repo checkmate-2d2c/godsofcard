@@ -3,23 +3,19 @@ import bannerImg from '../static/images/main_menu/new banner.png';
 import ricImg from '../static/images/main_menu/里克.png';
 import checkmateImg from '../static/images/main_menu/checkmateserverlogo-removebg-preview.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSatelliteDish, faBullhorn, faChevronLeft, faChevronRight,
-         faChevronUp, faChevronDown, faRobot } from '@fortawesome/free-solid-svg-icons';
-import { faFolderOpen, faCalendar } from '@fortawesome/free-regular-svg-icons';
+import { faSatelliteDish, faBullhorn, faChevronRight, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { faDiscord, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import LatetestCard from './LatestCard';
+import CardEvent from './CardEvent';
 
 import '../static/styles/MainMenu.css';
 
-const cards = ["https://drive.google.com/uc?id=1JI-73xU86K7bMOnJ9O23YET1lnPX_8BV", 
-               "https://drive.google.com/uc?id=1bW4IxxA6C5SJ9feP-SS5olC4YjMSeZOD", 
-               "https://drive.google.com/uc?id=1bW4IxxA6C5SJ9feP-SS5olC4YjMSeZOD"];
+
 const cardevents = ["/images/cards/events/event1.png",
                     "/images/cards/events/event2.png"];
 
 const MainMenu = (props) => {
   const [splashClass, setSplashClass] = useState('splash');
-  const [cardIndex, setCardIndex] = useState(1);
-  const [cardEventIndex, setCardEventIndex] = useState(1);
 
   useEffect(() => {
     setTimeout(() => {
@@ -54,31 +50,8 @@ const MainMenu = (props) => {
       </div>
       <br />
       <div className="cards-container">
-        <div className="latestcard">
-          <div style={{color: 'white'}}><FontAwesomeIcon icon={faFolderOpen} />&nbsp;最新卡牌 Lastest Card</div>
-          <div className="arrow-container">
-            <FontAwesomeIcon icon={faChevronLeft} id="left-nav" />
-            <FontAwesomeIcon icon={faChevronRight} id="right-nav" />
-          </div>
-          <div className="card-container">
-            <img src="" alt="" className="left" />
-            <img src="" alt="" className="middle" />
-            <img src="" alt="" className="right" />
-          </div>
-        </div>
-        <div className="cardevent">
-            <div style={{color: 'white'}}><FontAwesomeIcon icon={faCalendar} />&nbsp;卡池 Card Event</div>
-            <div className="arrow-container">
-              <FontAwesomeIcon icon={faChevronUp} id="top-nav" />
-              <br />
-              <FontAwesomeIcon icon={faChevronDown} id="bottom-nav" />
-            </div>
-            <div className="card-event-container">
-              <img src="" alt="" className="top" />
-              <img src="" alt="" className="middle" />
-              <img src="" alt="" className="bottom" />
-            </div>
-        </div>
+        <LatetestCard />
+        <CardEvent />
       </div>
       <br />
       <div className="description-container left">

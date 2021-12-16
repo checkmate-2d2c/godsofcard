@@ -214,13 +214,16 @@
 
 .latestcard .arrow-container #left-nav{
     margin-left: 3%;
+    position: relative;
+    z-index: 3;
 }
 
 .latestcard .arrow-container #right-nav {
-   margin-left: auto;
-   margin-right: 3%;
+    margin-left: auto;
+    margin-right: 3%;
+    position: relative;
+    z-index: 3;
 }
-
 
 .cardevent{
     position: relative;
