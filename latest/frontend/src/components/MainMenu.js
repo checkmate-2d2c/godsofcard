@@ -10,7 +10,7 @@ import CardEvent from './CardEvent';
 
 import '../static/styles/MainMenu.css';
 
-const MainMenu = (props) => {
+function MainMenu(props) {
   const [splashClass, setSplashClass] = useState('splash');
 
   useEffect(() => {
@@ -86,6 +86,6 @@ const MainMenu = (props) => {
       <br /><br /><br />
     </>
   );
-};
+}
 
 export default MainMenu;

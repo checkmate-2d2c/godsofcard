@@ -1,14 +1,15 @@
 import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
-import '../static/styles/Navbar.css'
+import genRandomToken from '../utils/genRandomToken';
+import '../static/styles/Navbar.css';
 
-const NavigationBar = (props) => {
+function NavigationBar(props) {
   const navigateWrapper = (dest) => (e) => {
     props.navigate(dest);
     e.target.blur();
   };
 
   const renderPlayerUtils = () => {
-    if (props.user_id) {
+    if (props.userdata.user_id !== null) {
       return (
         <>
           <Nav.Item>
@@ -26,16 +27,18 @@ const NavigationBar = (props) => {
   };
 
   const renderUserInfo = () => {
-    if (!props.user_id){
-      const login_url = "https://discord.com/api/oauth2/authorize?client_id=871636867966185562&redirect_uri=https%3A%2F%2F2f019e90a7d0ed1c79869fe04388e5a60.ordinarymushroo.repl.co%2Fcallback&response_type=code&scope=identify%20guilds";
-      return <a href={login_url}><Button variant="outline-success" className="my-2 my-sm-0">登入</Button></a>;
+    if (props.userdata.user_id === null){
+      const randomToken = genRandomToken(32);
+      const login_url = `https://discord.com/api/oauth2/authorize?response_type=code&client_id=${process.env.REACT_APP_DISCORD_CLIENT_ID}&scope=identify%20guilds&state=${randomToken}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&prompt=none`;
+      console.log(login_url);
+      return <a href={login_url}><Button variant="outline-success" className="my-2 my-sm-0" onClick={() => localStorage.setItem('oauth2_state', randomToken)}>登入</Button></a>;
     } else {
-      const avatar_url = `https://cdn.discordapp.com/avatars/${props.user_id}/${props.avatar_hash}.png`;
+      const avatar_url = `https://cdn.discordapp.com/avatars/${props.userdata.user_id}/${props.userdata.avatar_hash}.png`;
       return (
         <Nav navbar="true" className="ml-auto">
           <Dropdown as={Nav.Item}>
             <Dropdown.Toggle as={Nav.Link} href="" onClick={navigateWrapper("#")} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img className="icon" src={avatar_url} alt=""><span>{props.username}</span></img>
+              <img className="icon" src={avatar_url} alt="" /><span>{props.userdata.username}</span>
             </Dropdown.Toggle>
             <Dropdown.Menu align="right" aria-labelledby="navbarDropdownMenuLink">
               <Dropdown.Item className="text-center" href="" onClick={navigateWrapper("#")} style={{color: 'red'}} id="logout">登出</Dropdown.Item>
@@ -47,7 +50,7 @@ const NavigationBar = (props) => {
   };
 
   const renderAdminUtils = () => {
-    if (props.admin){
+    if (props.userdata.admin === true){
       return (
         <Nav.Item>
           <Nav.Link href="" onClick={navigateWrapper("/admin")}>管理員專區</Nav.Link>
@@ -86,6 +89,6 @@ const NavigationBar = (props) => {
       </Navbar.Collapse>
     </Navbar>
   );
-};
+}
 
 export default NavigationBar;

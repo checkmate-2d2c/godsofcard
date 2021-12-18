@@ -9,7 +9,7 @@ import event2 from '../static/images/cards/events/event2.png';
 
 const eventUrls = [event1, event2];
 
-const CardEvent = () => {
+function CardEvent() {
   const [events, setEvents] = useState({ display: [], index: null });
   const defaultDisplayClassNames = ['top', 'middle', 'bottom'];
 
@@ -57,6 +57,6 @@ const CardEvent = () => {
       </div>
     </div>
   );
-};
+}
 
 export default CardEvent;

@@ -1,7 +1,7 @@
 import '../static/styles/Footer.css';
 import finalLogo from '../static/images/footer/final logo.png';
 
-const Footer = (props) => {
+function Footer(props) {
   return (
     <footer className="footer">
       <div className="l-footer">
@@ -41,6 +41,6 @@ const Footer = (props) => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;
