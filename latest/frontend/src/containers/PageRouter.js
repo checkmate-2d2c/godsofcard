@@ -1,49 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import NavigationBar from '../components/NavigationBar';
-import Footer from '../components/Footer';
-import MainMenu from '../components/MainMenu';
-import oauth2 from '../utils/oauth2';
-import { getCachedUser } from '../utils/user';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
-function useQuery() {
-  const { search } = useLocation();
-  return React.useMemo(() => new URLSearchParams(search), [search]);
-}
+import Oauth2 from '../ajax/Oauth2';
+import MainFrame from './MainFrame';
 
 function PageRouter() {
-  const [userdata, setUserdata] = useState({
-    user_id: null,
-    username: null,
-    avatar_hash: null,
-    admin: false,
-  });
-  const query = useQuery();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    (async() => {
-      console.log('async side effect');
-      if (query.get('action') === 'oauth2') {
-        await oauth2({ 
-          code: query.get('code'), 
-          state: query.get('state')
-        });
-        navigate("/");
-      }
-      await getCachedUser({ userdata, setUserdata });
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  
   return (
-    <>
-      <NavigationBar navigate={navigate} userdata={userdata} />
-      <Routes>
-        <Route path="/" element={<MainMenu navigate={navigate} />} />
-      </Routes>
-      <Footer navigate={navigate} />
-    </>
+    <Routes>
+      <Route path="/" element={<MainFrame navigate={navigate} />} />
+      <Route path="/oauth2" element={<Oauth2 navigate={navigate} />} />
+    </Routes>
   );
 }
 

@@ -5,8 +5,7 @@ import cookies from 'cookie-parser';
 
 import genRandomToken from './utils/genRandomToken';
 
-import oauth2Route from './routes/oauth2';
-import userRoute from './routes/user';
+import apiRoute from './route';
 
 dotenv.config();
 
@@ -18,6 +17,7 @@ app.use(cookies());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URI);
   res.header('Access-Control-Allow-Credentials', true);
+  console.log(req.url);
   next();
 })
 app.use(session({
@@ -27,8 +27,7 @@ app.use(session({
   resave: false
 }));
 
-app.use('/oauth2', oauth2Route);
-app.use('/user', userRoute);
+app.use('/api', apiRoute);
 
 app.listen(port, () =>
   console.log(`Godsofcard backend app listening on port ${port}!`),

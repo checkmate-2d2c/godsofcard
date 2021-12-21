@@ -5,6 +5,8 @@ import checkmateImg from '../static/images/main_menu/checkmateserverlogo-removeb
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSatelliteDish, faBullhorn, faChevronRight, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { faDiscord, faYoutube } from '@fortawesome/free-brands-svg-icons';
+
+import { GetCachedUser } from '../ajax/User';
 import LatetestCard from './LatestCard';
 import CardEvent from './CardEvent';
 
@@ -22,6 +24,7 @@ function MainMenu(props) {
 
   return (
     <>
+      <GetCachedUser userdata={props.userdata} setUserdata={props.setUserdata} />
       <div className={splashClass}>       
         <h3 className="fade-in">人生 それもただのゲーム 毎回つまんなそうに生い 何の意味があるの？</h3>
         <h3 className="fade-in">それより 全部手放して 周リある限り操ってみて　この世界の真の神にならない？</h3>
