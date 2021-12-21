@@ -1,14 +1,15 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 
-function GetCachedUser({ userdata, setUserdata }) {
+function Login({ userdata, setUserdata }) {
   useEffect(() => {
     (async() => {
-      const { data: { login, data } } = await axios.get(
-        `${process.env.REACT_APP_BACKEND_API}/user`,
+      const { data: { logined, data } } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_API}/user/login`,
+        {}, 
         { withCredentials: true }
       );
-      if (login === true) {
+      if (logined === true) {
         const newUserdata = Object.assign({}, userdata, data);
         console.log(newUserdata);
         setUserdata(newUserdata);
@@ -20,4 +21,19 @@ function GetCachedUser({ userdata, setUserdata }) {
   return null;
 }
 
-export { GetCachedUser };
+async function Logout({ navigate, setUserdata }) {
+  await axios.post(
+    `${process.env.REACT_APP_BACKEND_API}/user/logout`,
+    {},
+    { withCredentials: true }
+  );
+  setUserdata({
+    user_id: null,
+    username: null,
+    avatar_hash: null,
+    admin: false
+  });
+  navigate("/");
+}
+
+export { Login, Logout };

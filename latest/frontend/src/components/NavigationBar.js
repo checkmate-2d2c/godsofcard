@@ -1,5 +1,7 @@
 import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import genRandomToken from '../utils/genRandomToken';
+import { Logout } from '../ajax/User';
+
 import '../static/styles/Navbar.css';
 
 function NavigationBar(props) {
@@ -37,11 +39,11 @@ function NavigationBar(props) {
       return (
         <Nav navbar="true" className="ml-auto">
           <Dropdown as={Nav.Item}>
-            <Dropdown.Toggle as={Nav.Link} href="" onClick={navigateWrapper("#")} id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Dropdown.Toggle as={Nav.Link} href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img className="icon" src={avatar_url} alt="" /><span>{props.userdata.username}</span>
             </Dropdown.Toggle>
             <Dropdown.Menu align="right" aria-labelledby="navbarDropdownMenuLink">
-              <Dropdown.Item className="text-center" href="" onClick={navigateWrapper("#")} style={{color: 'red'}} id="logout">登出</Dropdown.Item>
+              <Dropdown.Item className="text-center" href="" onClick={() => Logout(props)} style={{color: 'red'}} id="logout">登出</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Nav>

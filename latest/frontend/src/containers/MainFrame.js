@@ -9,12 +9,16 @@ function MainFrame({ navigate }) {
     user_id: null,
     username: null,
     avatar_hash: null,
-    admin: false,
+    admin: false
   });
   
   return (
     <>
-      <NavigationBar navigate={navigate} userdata={userdata} />
+      <NavigationBar 
+        navigate={navigate} 
+        userdata={userdata} 
+        setUserdata={setUserdata}
+      />
       <Routes>
         <Route path="/" element={
           <MainMenu 
