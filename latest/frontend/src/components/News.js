@@ -23,10 +23,10 @@ function News() {
       </div>
       <br />
       <div className="news-container">
-        {newsList.map(({ id, title, date }) => {
+        {newsList.map(({ id, title, date }, index) => {
           const url = `/news/${id}`;
           return (
-            <a href={url} style={{'text-decoration': 'none'}}>
+            <a key={index} href={url} style={{ textDecoration: 'none'}}>
               <div className="content">
                 <div className="news-icon">
                   <FontAwesomeIcon icon={faBullhorn} />

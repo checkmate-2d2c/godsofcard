@@ -30,7 +30,7 @@ function MainFrame({ navigate }) {
           />} 
         />
         <Route path="/news" element={<News />} />
-        <Route path="/news/:id" element={<NewsPage />} />
+        <Route path="/news/:id" element={<NewsPage navigate={navigate} />} />
       </Routes>
       <Footer navigate={navigate} />
     </>

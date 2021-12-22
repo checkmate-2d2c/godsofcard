@@ -53,7 +53,7 @@ function CardEvent() {
         <FontAwesomeIcon icon={faChevronDown} id="bottom-nav" onClick={() => moveEvents('D')} />
       </div>
       <div className="card-event-container">
-        {events.display.map(({ src, className }) => <img src={src} alt="" className={className} />)}
+        {events.display.map(({ src, className }, index) => <img key={index} src={src} alt="" className={className} />)}
       </div>
     </div>
   );

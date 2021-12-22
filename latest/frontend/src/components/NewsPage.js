@@ -5,9 +5,9 @@ import { faArrowAltCircleLeft, faSatelliteDish } from '@fortawesome/free-solid-s
 
 import { getTargetNews } from '../ajax/news';
 
-import '../static/styles/News.css';
+import '../static/styles/NewsPage.css';
 
-function NewsPage() {
+function NewsPage(props) {
   const [news, setNews] = useState({ title: '', content: '', date: '' });
   const { id } = useParams();
 
@@ -21,20 +21,20 @@ function NewsPage() {
 
   return (
     <>
-      <a href="/news"><FontAwesomeIcon icon={faArrowAltCircleLeft} id="back-icon" /></a>
-      <div style={{ width: '100%', height: '250px', border: 'white 1px solid' }} class="hide">
+      <FontAwesomeIcon icon={faArrowAltCircleLeft} id="back-icon" onClick={() => props.navigate("/news")} />
+      <div style={{ width: '100%', height: '250px', border: 'white 1px solid' }} className="hide">
 
       </div>
       <br />
-      <div class="title">
+      <div className="title">
         <div>
-          <h1><FontAwesomeIcon icon={faSatelliteDish} />{news.title}</h1>
+          <h1><FontAwesomeIcon icon={faSatelliteDish} /> {news.title}</h1>
           <span>{news.date}</span>
         </div>
       </div>
-      <div class="line"></div>
+      <div className="line"></div>
       <br />
-      <div class="content">
+      <div className="content">
         <p>{news.content}</p>
       </div>
     </>

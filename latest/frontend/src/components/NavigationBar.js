@@ -72,7 +72,7 @@ function NavigationBar(props) {
       <Navbar as="nav" expand="lg" bg="light" variant="light" style={{position: 'sticky', top: '0px'}}>
         <Navbar.Brand href="/" style={{fontSize: '25px'}}>卡牌之神</Navbar.Brand>
         <Navbar.Toggle as="button" className="ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-          <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
+          <Navbar.Toggle as="span" aria-controls="basic-navbar-nav"></Navbar.Toggle>
         </Navbar.Toggle>
         <Navbar.Collapse className="collapse" id="navbarTogglerDemo01">
           <Navbar as={Nav} className="mr-auto mt-2 mt-lg-0">

@@ -49,7 +49,7 @@ function LatetestCard() {
         <FontAwesomeIcon icon={faChevronRight} id="right-nav" onClick={() => moveCards('R')}/>
       </div>
       <div className="card-container">
-        {cards.display.map(({ src, className }) => <img src={src} alt="" className={className} />)}
+        {cards.display.map(({ src, className }, index) => <img key={index} src={src} alt="" className={className} />)}
       </div>
     </div>
   );
