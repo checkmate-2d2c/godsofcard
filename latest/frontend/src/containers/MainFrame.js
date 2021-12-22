@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import MainMenu from '../components/MainMenu';
 import News from '../components/News';
 import NewsPage from '../components/NewsPage';
+import Community from '../components/Community';
 import Support from '../components/Support';
 
 function MainFrame({ navigate }) {
@@ -32,6 +33,7 @@ function MainFrame({ navigate }) {
         />
         <Route path="/news" element={<News />} />
         <Route path="/news/:id" element={<NewsPage navigate={navigate} />} />
+        <Route path="/community" element={<Community />} />
         <Route path="/support" element={<Support />} />
       </Routes>
       <Footer navigate={navigate} />
