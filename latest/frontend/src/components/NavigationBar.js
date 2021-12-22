@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import genRandomToken from '../utils/genRandomToken';
-import { Logout } from '../ajax/User';
+import { Login, Logout } from '../ajax/User';
 
 import '../static/styles/Navbar.css';
 
 function NavigationBar(props) {
+  const [logout, setLogout] = useState(false);
+
   const navigateWrapper = (dest) => (e) => {
     props.navigate(dest);
     e.target.blur();
@@ -21,7 +24,7 @@ function NavigationBar(props) {
             <Nav.Link href="" onClick={navigateWrapper("/inventory")}>卡牌庫</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link disabled href="" onClick={navigateWrapper("#")}>戰鬥</Nav.Link>
+            <Nav.Link disabled href="" onClick={navigateWrapper("/#")}>戰鬥</Nav.Link>
           </Nav.Item>
         </>
       );
@@ -43,7 +46,8 @@ function NavigationBar(props) {
               <img className="icon" src={avatar_url} alt="" /><span>{props.userdata.username}</span>
             </Dropdown.Toggle>
             <Dropdown.Menu align="right" aria-labelledby="navbarDropdownMenuLink">
-              <Dropdown.Item className="text-center" href="" onClick={() => Logout(props)} style={{color: 'red'}} id="logout">登出</Dropdown.Item>
+              <Dropdown.Item className="text-center" href="" onClick={() => setLogout(true)} style={{color: 'red'}} id="logout">登出</Dropdown.Item>
+              {logout ? <Logout {...props} setLogout={setLogout} /> : null}
             </Dropdown.Menu>
           </Dropdown>
         </Nav>
@@ -62,34 +66,37 @@ function NavigationBar(props) {
   };
 
   return (
-    <Navbar as="nav" expand="lg" bg="light" variant="light" style={{position: 'sticky', top: '0px'}}>
-      <Navbar.Brand href="/" style={{fontSize: '25px'}}>卡牌之神</Navbar.Brand>
-      <Navbar.Toggle as="button" className="ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
-      </Navbar.Toggle>
-      <Navbar.Collapse className="collapse" id="navbarTogglerDemo01">
-        <Navbar as={Nav} className="mr-auto mt-2 mt-lg-0">
-          <Nav.Item>
-            <Nav.Link href="" onClick={navigateWrapper("/")}>主頁</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="" onClick={navigateWrapper("/news")}>新聞</Nav.Link>
-          </Nav.Item>
-          {renderPlayerUtils()}
-          <Nav.Item>
-            <Nav.Link href="" onClick={navigateWrapper("/collection")}>圖鑒</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="" onClick={navigateWrapper("/community")}>社群</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="" onClick={navigateWrapper("/support")}>支援</Nav.Link>
-          </Nav.Item>
-          {renderAdminUtils()}
-        </Navbar>
-        {renderUserInfo()}
-      </Navbar.Collapse>
-    </Navbar>
+    <>
+      <Login {...props} />
+      <Navbar as="nav" expand="lg" bg="light" variant="light" style={{position: 'sticky', top: '0px'}}>
+        <Navbar.Brand href="/" style={{fontSize: '25px'}}>卡牌之神</Navbar.Brand>
+        <Navbar.Toggle as="button" className="ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
+        </Navbar.Toggle>
+        <Navbar.Collapse className="collapse" id="navbarTogglerDemo01">
+          <Navbar as={Nav} className="mr-auto mt-2 mt-lg-0">
+            <Nav.Item>
+              <Nav.Link href="" onClick={navigateWrapper("/")}>主頁</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="" onClick={navigateWrapper("/news")}>新聞</Nav.Link>
+            </Nav.Item>
+            {renderPlayerUtils()}
+            <Nav.Item>
+              <Nav.Link href="" onClick={navigateWrapper("/collection")}>圖鑒</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="" onClick={navigateWrapper("/community")}>社群</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="" onClick={navigateWrapper("/support")}>支援</Nav.Link>
+            </Nav.Item>
+            {renderAdminUtils()}
+          </Navbar>
+          {renderUserInfo()}
+        </Navbar.Collapse>
+      </Navbar>
+    </>
   );
 }
 

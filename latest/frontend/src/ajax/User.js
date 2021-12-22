@@ -21,19 +21,27 @@ function Login({ userdata, setUserdata }) {
   return null;
 }
 
-async function Logout({ navigate, setUserdata }) {
-  await axios.post(
-    `${process.env.REACT_APP_BACKEND_API}/user/logout`,
-    {},
-    { withCredentials: true }
-  );
-  setUserdata({
-    user_id: null,
-    username: null,
-    avatar_hash: null,
-    admin: false
-  });
-  navigate("/");
+function Logout({ navigate, setUserdata, setLogout }) {
+  useEffect(() => {
+    (async() => {
+      await axios.post(
+        `${process.env.REACT_APP_BACKEND_API}/user/logout`,
+        {},
+        { withCredentials: true }
+      );
+      setUserdata({
+        user_id: null,
+        username: null,
+        avatar_hash: null,
+        admin: false
+      });
+      setLogout(false);
+      navigate("/");
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
+  return null;
 }
 
 export { Login, Logout };
