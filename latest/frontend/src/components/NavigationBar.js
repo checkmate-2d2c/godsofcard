@@ -1,13 +1,11 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import genRandomToken from '../utils/genRandomToken';
-import { Login, Logout } from '../ajax/User';
+import { Login, Logout } from '../ajax/user';
 
 import '../static/styles/Navbar.css';
 
 function NavigationBar(props) {
-  const [logout, setLogout] = useState(false);
-
   const navigateWrapper = (dest) => (e) => {
     props.navigate(dest);
     e.target.blur();
@@ -46,8 +44,7 @@ function NavigationBar(props) {
               <img className="icon" src={avatar_url} alt="" /><span>{props.userdata.username}</span>
             </Dropdown.Toggle>
             <Dropdown.Menu align="right" aria-labelledby="navbarDropdownMenuLink">
-              <Dropdown.Item className="text-center" href="" onClick={() => setLogout(true)} style={{color: 'red'}} id="logout">登出</Dropdown.Item>
-              {logout ? <Logout {...props} setLogout={setLogout} /> : null}
+              <Dropdown.Item className="text-center" href="" onClick={() => Logout(props)} style={{color: 'red'}} id="logout">登出</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Nav>
@@ -65,9 +62,13 @@ function NavigationBar(props) {
     }
   };
 
+  useEffect(() => {
+    (async() => await Login(props))();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
-      <Login {...props} />
       <Navbar as="nav" expand="lg" bg="light" variant="light" style={{position: 'sticky', top: '0px'}}>
         <Navbar.Brand href="/" style={{fontSize: '25px'}}>卡牌之神</Navbar.Brand>
         <Navbar.Toggle as="button" className="ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">

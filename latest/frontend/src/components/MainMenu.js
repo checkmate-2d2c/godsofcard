@@ -84,7 +84,7 @@ function MainMenu(props) {
           </span>
         </div>
       </div>
-      <br /><br /><br />
+      <br /><br />
     </>
   );
 }

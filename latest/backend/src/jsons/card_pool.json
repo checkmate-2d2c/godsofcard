@@ -1,0 +1,42 @@
+[
+    {
+        "id": 0,
+        "name":"每天登入抽卡",
+        "description": "每日登入即送單抽， 有機率可以獲得S級卡牌",
+        "cost":0,
+        "limit": 1,
+        "card_pool_id":"9J3CaaGif1NYQkrVCa2tkWEBhCDfDkHh",
+        "banner":"event1.png",
+        "probability": {
+            "S":1,
+            "A":5,
+            "B":17,
+            "C":28,
+            "D":49
+        },
+        "start":0,
+        "expire":0,
+        "ten": false,
+        "highlight_cards": ["https://drive.google.com/uc?id=1jbp7xmWMSHCpN5pLm53AgPFVsY9Hm-WT", "https://drive.google.com/uc?id=1UG_l7vQPetwLXIoY4NixG53wuXwPwYhX", "https://drive.google.com/uc?id=14akcthFAk9i9YEOmV_xtVne0n7pskA8T"]
+    },
+    {
+        "id": 1,
+        "name":"普通抽卡",
+        "description": "普通抽卡，花費pt來抽卡",
+        "cost":1000,
+        "limit": 0,
+        "card_pool_id":"PHZF27WE7zEaY5vmJEfl7FFDoGrS8Gpw",
+        "banner":"event2.png",
+        "probability": {
+            "S":1,
+            "A":5,
+            "B":17,
+            "C":28,
+            "D":49
+        },
+        "start":0,
+        "expire":0,
+        "ten": true,
+        "highlight_cards": ["https://drive.google.com/uc?id=15wUKphiEcCsjAMw21GAnxj8Exjf85jQZ", "https://drive.google.com/uc?id=1Za0oF4t0oIZQcW4Fhir5QLSvIlZqyVzW"]
+    }
+]

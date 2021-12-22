@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
 import Footer from '../components/Footer';
 import MainMenu from '../components/MainMenu';
+import News from '../components/News';
+import NewsPage from '../components/NewsPage';
 
 function MainFrame({ navigate }) {
   const [userdata, setUserdata] = useState({
@@ -27,6 +29,8 @@ function MainFrame({ navigate }) {
             setUserdata={setUserdata} 
           />} 
         />
+        <Route path="/news" element={<News />} />
+        <Route path="/news/:id" element={<NewsPage />} />
       </Routes>
       <Footer navigate={navigate} />
     </>
