@@ -6,7 +6,7 @@ import { getAllNews } from '../ajax/news';
 
 import '../static/styles/News.css';
 
-function News() {
+function News(props) {
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function News() {
         {newsList.map(({ id, title, date }, index) => {
           const url = `/news/${id}`;
           return (
-            <a key={index} href={url} style={{ textDecoration: 'none'}}>
+            <a href="" key={index} onClick={() => props.navigate(url)} >
               <div className="content">
                 <div className="news-icon">
                   <FontAwesomeIcon icon={faBullhorn} />

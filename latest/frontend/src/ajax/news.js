@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function getAllNews() {
+const getAllNews = async() => {
   const { data: { message, newsList } } = await axios.get(
     `${process.env.REACT_APP_BACKEND_API}/news/all`,
     {}, 
@@ -8,9 +8,9 @@ async function getAllNews() {
   );
   console.log(newsList);
   return message === 'success' ? newsList.reverse() : [];
-}
+};
 
-async function getTargetNews({ id }) {
+const getTargetNews = async({ id }) => {
   const { data: { message, news } } = await axios.get(
     `${process.env.REACT_APP_BACKEND_API}/news/${id}`,
     {}, 
@@ -18,6 +18,6 @@ async function getTargetNews({ id }) {
   );
   console.log(news);
   return message === 'success' ? news : null;
-}
+};
 
 export { getAllNews, getTargetNews };

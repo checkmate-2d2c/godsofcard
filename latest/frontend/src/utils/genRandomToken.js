@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 
-function genRandomToken(length) {
+const genRandomToken = (length) => {
   return crypto.randomBytes(length).toString('hex');
-}
+};
 
 export default genRandomToken;

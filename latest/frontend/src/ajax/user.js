@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function Login({ userdata, setUserdata }) {
+const Login = async({ userdata, setUserdata }) => {
   const { data: { logined, data } } = await axios.post(
     `${process.env.REACT_APP_BACKEND_API}/user/login`,
     {}, 
@@ -11,9 +11,9 @@ async function Login({ userdata, setUserdata }) {
     console.log(newUserdata);
     setUserdata(newUserdata);
   }
-}
+};
 
-async function Logout({ navigate, setUserdata }) {
+const Logout = async({ navigate, setUserdata }) => {
   await axios.post(
     `${process.env.REACT_APP_BACKEND_API}/user/logout`,
     {},
@@ -26,6 +26,6 @@ async function Logout({ navigate, setUserdata }) {
     admin: false
   });
   navigate("/");
-}
+};
 
 export { Login, Logout };

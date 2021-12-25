@@ -33,7 +33,6 @@ function NavigationBar(props) {
     if (props.userdata.user_id === null){
       const randomToken = genRandomToken(32);
       const login_url = `https://discord.com/api/oauth2/authorize?response_type=code&client_id=${process.env.REACT_APP_DISCORD_CLIENT_ID}&scope=identify%20guilds&state=${randomToken}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&prompt=none`;
-      console.log(login_url);
       return <a href={login_url}><Button variant="outline-success" className="my-2 my-sm-0" onClick={() => localStorage.setItem('oauth2_state', randomToken)}>登入</Button></a>;
     } else {
       const avatar_url = `https://cdn.discordapp.com/avatars/${props.userdata.user_id}/${props.userdata.avatar_hash}.png`;
