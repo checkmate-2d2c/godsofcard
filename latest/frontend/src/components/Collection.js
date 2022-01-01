@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { getAllCards } from '../ajax/collection';
+import { getCards } from '../ajax/cards';
 
 import '../static/styles/Collection.css';
 
-function Collection() {
+function Collection(props) {
   const [characterName, setCharacterName] = useState('');
   const [animeName, setAnimeName] = useState('');
   const [tierName, setTierName] = useState('');
@@ -24,21 +24,27 @@ function Collection() {
   };
 
   useEffect(() => {
-    (async() => setCardsList(await getAllCards()))();
-  }, []);
+    (async() => {
+      setCharacterName('');
+      setAnimeName('');
+      setTierName('');
+      setCardsList(await getCards(props.scope));
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.scope]);
 
   return (
     <>
       <br />
       <div className="collection-title">
-        <h1>圖鑑</h1>
+        <h1>{props.title}</h1>
         <div></div>
       </div>
       <br />
       <div className="collection-filter">
-        <input type="text" id="name-search" placeholder="Character Name" onChange={(e) => setCharacterName(e.target.value)} />
-        <input type="text" id="anime-search" placeholder="Anime Name" onChange={(e) => setAnimeName(e.target.value)} />
-        <select defaultValue={""} id="tier-search" onChange={(e) => setTierName(e.target.value)}>
+        <input type="text" id="name-search" value={characterName} placeholder="Character Name" onChange={(e) => setCharacterName(e.target.value)} />
+        <input type="text" id="anime-search" value={animeName} placeholder="Anime Name" onChange={(e) => setAnimeName(e.target.value)} />
+        <select defaultValue={""} value={tierName} id="tier-search" onChange={(e) => setTierName(e.target.value)}>
           <option value="" disabled>Tier</option>
           <option value="">None</option>
           <option value="S">S</option>

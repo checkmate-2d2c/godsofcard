@@ -5,13 +5,12 @@ import SessionData from '../structs/sessionData';
 const router = express.Router();
 
 router.post('/login', (req, res) => {
-  console.log(req.cookies);
   if (req.cookies.user_token === undefined) {
     return res.send({ login: false });
   }
   const session_data = SessionData(decryptToken(req.cookies.user_token));
   if (session_data === null) {
-    return res.send({ logined: false });
+    return res.send({ login: false });
   }
   else {
     const new_user_token = encryptToken(session_data);
@@ -27,7 +26,7 @@ router.post('/login', (req, res) => {
     )
     Object.assign(req.session, session_data);
     console.log('Retrieve session data success');
-    res.send({ logined: true, data: session_data });
+    res.send({ login: true, data: session_data });
   }
 });
 

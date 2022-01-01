@@ -73,7 +73,7 @@ function Support() {
       <br /><br />
       <div id="card2">
         <h3>雀可相關</h3>
-        <div classNameName="img-box">
+        <div className="img-box">
           <a href="https://discord.gg/checkmatekuhaku" target="_blank" rel="noreferrer">
             <img src="/images/support/Discord-Logo+Wordmark-Color.png" alt="" style={{ height: '40px'}} />
           </a>

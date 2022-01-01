@@ -21,20 +21,20 @@ function NewsPage(props) {
 
   return (
     <>
-      <FontAwesomeIcon icon={faArrowAltCircleLeft} id="back-icon" onClick={() => props.navigate("/news")} />
+      <FontAwesomeIcon icon={faArrowAltCircleLeft} className="newspage-back-icon" onClick={() => props.navigate("/news")}/>
       <div style={{ width: '100%', height: '250px', border: 'white 1px solid' }} className="hide">
 
       </div>
       <br />
-      <div className="title">
+      <div className="newspage-title">
         <div>
           <h1><FontAwesomeIcon icon={faSatelliteDish} /> {news.title}</h1>
           <span>{news.date}</span>
         </div>
       </div>
-      <div className="line"></div>
+      <div className="newspage-line"></div>
       <br />
-      <div className="content">
+      <div className="newspage-content">
         <p>{news.content}</p>
       </div>
     </>

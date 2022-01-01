@@ -7,53 +7,7 @@ body {
     background-color: rgb(41, 41, 41);
 }
 
-.backToNews {
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-}
-
-.title h1{
-    color: white;
-    width: 450px;
-    text-align: center;
-    font-family: myounghk;
-}
-
-.title span {
-    font-size: 15px;
-    height: 20px;
-    color: white;
-    margin-top: 25px;
-    font-family: myounghk;
-}
-
-.line {
-    border: white 1px solid;
-    width: 560px;
-}
-
-.title div {
-    display: flex;
-}
-
-.content {
-    width: 90%;
-    margin: auto;
-}
-
-.content p {
-    color: white;
-}
-
-.hide {
-    display: none !important;
-}
-
-#back-icon {
+.newspage-back-icon {
     top:20px;
     left:20px;
     color: white;
@@ -61,17 +15,58 @@ body {
     margin: 10px;
 }
 
+.newspage-back-icon:hover {
+    cursor: pointer;
+}
+
+.newspage-title h1{
+    color: white;
+    width: 450px;
+    text-align: center;
+    font-family: myounghk;
+}
+
+.newspage-title span {
+    font-size: 15px;
+    height: 20px;
+    color: white;
+    margin-top: 25px;
+    font-family: myounghk;
+}
+
+.newspage-line {
+    border: white 1px solid;
+    width: 560px;
+}
+
+.newspage-title div {
+    display: flex;
+}
+
+.newspage-content {
+    width: 90%;
+    margin: auto;
+}
+
+.newspage-content p {
+    color: white;
+}
+
+.hide {
+    display: none !important;
+}
+
 @media only screen and (max-width: 720px) {
     body {
         min-width: 400px;
     }
-    .title{
+    .newspage-title{
         width: 100%;
         height: auto;
         display: flex;
         justify-content: space-around;
     }
-    .line {
+    .newspage-line {
         width: 90%;
         margin: auto;
     }

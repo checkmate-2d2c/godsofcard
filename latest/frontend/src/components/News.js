@@ -26,7 +26,7 @@ function News(props) {
         {newsList.map(({ id, title, date }, index) => {
           const url = `/news/${id}`;
           return (
-            <a href="" key={index} onClick={() => props.navigate(url)} >
+            <button key={index} onClick={() => props.navigate(url)}>
               <div className="content">
                 <div className="news-icon">
                   <FontAwesomeIcon icon={faBullhorn} />
@@ -36,7 +36,7 @@ function News(props) {
                   <span>{date}</span>
                 </div>
               </div>
-            </a>
+            </button>
           );
         })}
       </div>

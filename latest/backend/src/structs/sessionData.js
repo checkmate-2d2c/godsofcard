@@ -1,4 +1,5 @@
 const SessionData = (input) => {
+  if (input === null || input === undefined) return null;
   return { 
     user_id: input.user_id, 
     username: input.username, 

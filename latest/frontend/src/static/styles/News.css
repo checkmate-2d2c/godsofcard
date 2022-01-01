@@ -30,11 +30,25 @@ body {
     margin: auto;
 }
 
+.news-container button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 40px;
+    padding: 0;
+}
+
+.news-container button:focus {
+    outline: none;
+}
+
 .news-container .content {
     height: 200px;
     width: 100%;
     border: white 1px solid;
-    margin-top: 40px;
     display: inline-grid;
     grid-template-columns: 20% 80%;
     text-decoration: none;
@@ -63,6 +77,20 @@ body {
     color: white;
 }
 
+.news-container .content .title h1{
+    color: white;
+    width: 450px;
+    text-align: center;
+    font-family: myounghk;
+}
+
+.news-container .content .title span {
+    font-size: 15px;
+    height: 20px;
+    color: white;
+    margin-top: 25px;
+    font-family: myounghk;
+}
 
 @media only screen and (max-width: 720px) {
     body {

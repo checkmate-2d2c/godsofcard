@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 const Login = async({ userdata, setUserdata }) => {
-  const { data: { logined, data } } = await axios.post(
+  const { data: { login, data } } = await axios.post(
     `${process.env.REACT_APP_BACKEND_API}/user/login`,
     {}, 
     { withCredentials: true }
   );
-  if (logined === true) {
+  if (login === true) {
     const newUserdata = Object.assign({}, userdata, data);
     console.log(newUserdata);
     setUserdata(newUserdata);
