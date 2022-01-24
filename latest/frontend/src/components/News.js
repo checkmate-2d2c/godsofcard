@@ -10,12 +10,16 @@ function News(props) {
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
-    (async() => setNewsList(await getAllNews()))();
+    (async() => { 
+      setNewsList(await getAllNews());
+      window.scrollTo(0, 0);
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
+      <div id="news-top"/>
       <br />
       <div className="news-title">
           <h1>新聞</h1>
@@ -40,6 +44,7 @@ function News(props) {
           );
         })}
       </div>
+      <br/>
     </>
   );
 }

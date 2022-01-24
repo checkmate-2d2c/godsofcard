@@ -67,12 +67,12 @@
     color: white;
 }
 
-.latestnews .content-container {
+.latestnews .main-content-container {
     height: 300px;
     overflow-y: auto;
 }
 
-.latestnews .content-container .content {
+.latestnews .main-content-container .content {
     background-color: rgb(155, 155, 155);
     width: 95%;
     height: 50px;
@@ -82,29 +82,29 @@
     transition: height linear 0.2s;
     overflow: hidden;
 }
-.latestnews .content-container .content:hover{
+.latestnews .main-content-container .content:hover{
     height: 100px;
 }
-.latestnews .content-container .content:hover > .header .arrow {
+.latestnews .main-content-container .content:hover > .header .arrow {
     transform: rotate(90deg);
 }
 
-.latestnews .content-container .content .header {
+.latestnews .main-content-container .content .header {
     height: 100%;
     max-height: 50px;
     display: flex;
 }
 
-.latestnews .content-container .content .header .arrow {
+.latestnews .main-content-container .content .header .arrow {
     transition: transform linear 0.2s ;
 }
 
-.latestnews .content-container .content .details {
+.latestnews .main-content-container .content .details {
     width: 95%;
     margin: auto;
 }
 
-.latestnews .content-container .content .header i, .latestnews .content-container .content .header span {
+.latestnews .main-content-container .content .header i, .latestnews .main-content-container .content .header span {
     margin-left: 10px;
     font-size: 25px;
     padding: 0;

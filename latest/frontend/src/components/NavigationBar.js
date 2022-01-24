@@ -3,26 +3,21 @@ import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import genRandomToken from '../utils/genRandomToken';
 import { Login, Logout } from '../ajax/user';
 
-import '../static/styles/Navbar.css';
+import '../static/styles/NavBar.css';
 
 function NavigationBar(props) {
-  const navigateWrapper = (dest) => (e) => {
-    props.navigate(dest);
-    e.target.blur();
-  };
-
   const renderPlayerUtils = () => {
     if (props.userdata.user_id !== null) {
       return (
         <>
           <Nav.Item>
-            <Nav.Link href="" onClick={navigateWrapper("/card")}>抽卡</Nav.Link>
+            <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/card")}>抽卡</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="" onClick={navigateWrapper("/inventory")}>卡牌庫</Nav.Link>
+            <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/inventory")}>卡牌庫</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link disabled href="" onClick={navigateWrapper("/#")}>戰鬥</Nav.Link>
+            <Nav.Link onFocus={e => e.target.blur()} disabled href="" onClick={() => props.navigate("/#")}>戰鬥</Nav.Link>
           </Nav.Item>
         </>
       );
@@ -55,7 +50,7 @@ function NavigationBar(props) {
     if (props.userdata.admin === true){
       return (
         <Nav.Item>
-          <Nav.Link href="" onClick={navigateWrapper("/admin")}>管理員專區</Nav.Link>
+          <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/admin")}>管理員專區</Nav.Link>
         </Nav.Item>
       );
     }
@@ -76,20 +71,20 @@ function NavigationBar(props) {
         <Navbar.Collapse className="collapse" id="navbarTogglerDemo01">
           <Navbar as={Nav} className="mr-auto mt-2 mt-lg-0">
             <Nav.Item>
-              <Nav.Link href="" onClick={navigateWrapper("/")}>主頁</Nav.Link>
+              <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/")}>主頁</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="" onClick={navigateWrapper("/news")}>新聞</Nav.Link>
+              <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/news")}>新聞</Nav.Link>
             </Nav.Item>
             {renderPlayerUtils()}
             <Nav.Item>
-              <Nav.Link href="" onClick={navigateWrapper("/collection")}>圖鑒</Nav.Link>
+              <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/collection")}>圖鑒</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="" onClick={navigateWrapper("/community")}>社群</Nav.Link>
+              <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/community")}>社群</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="" onClick={navigateWrapper("/support")}>支援</Nav.Link>
+              <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/support")}>支援</Nav.Link>
             </Nav.Item>
             {renderAdminUtils()}
           </Navbar>

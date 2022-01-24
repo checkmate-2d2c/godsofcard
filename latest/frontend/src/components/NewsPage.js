@@ -15,6 +15,7 @@ function NewsPage(props) {
     (async() => {
       setNews(await getTargetNews({ id }));
       console.log(news);
+      window.scrollTo(0, 0);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -37,6 +38,7 @@ function NewsPage(props) {
       <div className="newspage-content">
         <p>{news.content}</p>
       </div>
+      <br/>
     </>
   );
 }

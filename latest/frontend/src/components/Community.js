@@ -1,9 +1,14 @@
+import { useEffect } from 'react';
 import checkmateServerLogo from '../static/images/community/checkmateserverlogo-removebg-preview.png';
 import '../static/styles/Community.css';
 
 function Community() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <>
+    <div className="community-background-wrapper">
       <br />
       <div style={{ width: '100%', textAlign: 'center', color: 'white'}} >
         <h1>我們的社群</h1>
@@ -45,7 +50,8 @@ function Community() {
         </div>
       </div>
       <br />
-    </>
+      <br/>
+    </div>
   );
 }
 

@@ -45,17 +45,19 @@ function CardEvent() {
   }, []);
 
   return (
-    <div className="cardevent">
-      <div style={{color: 'white'}}><FontAwesomeIcon icon={faCalendar} />&nbsp;卡池 Card Event</div>
-      <div className="arrow-container">
-        <FontAwesomeIcon icon={faChevronUp} id="top-nav" onClick={() => moveEvents('U')} />
-        <br />
-        <FontAwesomeIcon icon={faChevronDown} id="bottom-nav" onClick={() => moveEvents('D')} />
+    <>
+      <div className="cardevent">
+        <div style={{color: 'white'}}><FontAwesomeIcon icon={faCalendar} />&nbsp;卡池 Card Event</div>
+        <div className="arrow-container">
+          <FontAwesomeIcon icon={faChevronUp} id="top-nav" onClick={() => moveEvents('U')} />
+          <br />
+          <FontAwesomeIcon icon={faChevronDown} id="bottom-nav" onClick={() => moveEvents('D')} />
+        </div>
+        <div className="card-event-container">
+          {events.display.map(({ src, className }, index) => <img key={index} src={src} alt="" className={className} />)}
+        </div>
       </div>
-      <div className="card-event-container">
-        {events.display.map(({ src, className }, index) => <img key={index} src={src} alt="" className={className} />)}
-      </div>
-    </div>
+    </>
   );
 }
 

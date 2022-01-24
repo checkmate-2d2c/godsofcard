@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import '../static/styles/Support.css';
 
 function Support() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (  
-    <>
+    <div className="support-background-wrapper">
       <div id="n_Support">
         <h1 style={{ width: '100%', textAlign: 'center', color: 'white'}} >支援 Support</h1>
         <div style={{ width: '20%', margin: 'auto', border: 'white 1px solid'}} ></div>
@@ -89,7 +94,8 @@ function Support() {
         </div>
       </div>
       <br />
-    </>
+      <br/>
+    </div>
   );
 }
 

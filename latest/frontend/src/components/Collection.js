@@ -24,6 +24,10 @@ function Collection(props) {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
+  useEffect(() => {
     (async() => {
       setCharacterName('');
       setAnimeName('');
@@ -59,6 +63,7 @@ function Collection(props) {
       <div className="card-display">
         {cardsList.map(({ url, selected }, index) => selected ? <img key={index} src={url} alt="" /> : null)}
       </div>
+      <br/>
     </>
   );
 }

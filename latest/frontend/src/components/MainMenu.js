@@ -17,6 +17,7 @@ function MainMenu(props) {
   useEffect(() => {
     setTimeout(() => {
       setSplashClass(`${splashClass} display-none`);
+      window.scrollTo(0, 0);
     }, 2000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -31,7 +32,7 @@ function MainMenu(props) {
       <img src={bannerImg} alt="" className="banner" />
       <div className="latestnews">
         <span className="title"><FontAwesomeIcon icon={faSatelliteDish} style={{fontSize: '24px', color: 'white'}} /> 最新消息 Latest News</span>
-        <div className="content-container" style={{color: 'white'}}>
+        <div className="main-content-container" style={{color: 'white'}}>
           <div className="content">
             <div className="header">
               <span className="title">

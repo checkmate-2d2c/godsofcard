@@ -22,12 +22,13 @@ function Card() {
       console.log(cardsPool);
       setCardsList(cardsPool.cardsList);
       setUserBalance(cardsPool.userBalance);
+      window.scrollTo(0, 0);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <>
+    <div className="card-background-wrapper">
       <div className="loading hide">
         <h1>Loading</h1>
       </div>
@@ -68,7 +69,8 @@ function Card() {
           </div>
         </div>
       </div>
-    </>
+      <br/>
+    </div>
   );
 }
 

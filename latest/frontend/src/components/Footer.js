@@ -4,7 +4,6 @@ import finalLogo from '../static/images/footer/final logo.png';
 function Footer(props) {
   return (
     <>
-      <br />
       <footer className="footer">
         <div className="l-footer">
           <img src={finalLogo} alt="" style={{width: '40%'}} />
