@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 
 dotenv.config();
 
-const dbOptions = "?retryWrites=true&w=majority";
+const dbConnect = () => {
+  mongoose.connect(`${process.env.MONGO_URL}`, () => {
+    console.log('mongodb connection created');
+  });
+};
 
-const moneyDataDB = mongoose.createConnection(`${process.env.MONGO_URL}/MoneyData${dbOptions}`);
-
-const playerInventoryDB = mongoose.createConnection(`${process.env.MONGO_URL}/PlayerInventory${dbOptions}`);
-
-export { moneyDataDB, playerInventoryDB };
+export default dbConnect;

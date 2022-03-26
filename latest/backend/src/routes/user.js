@@ -2,6 +2,8 @@ import express from 'express';
 import { encryptToken, decryptToken } from '../utils/userToken';
 import SessionData from '../structs/sessionData';
 
+import User from '../models/user';
+
 const router = express.Router();
 
 router.post('/login', (req, res) => {
@@ -19,8 +21,8 @@ router.post('/login', (req, res) => {
       new_user_token,
       {
         maxAge: 1000 * 60 * 15, // would expire after 15 minutes
-        sameSite: 'none',
-        secure: true,
+        sameSite: 'lax',
+        httpOnly: true,
         overwrite: true
       }
     )
@@ -36,6 +38,24 @@ router.post('/logout', (req, res) => {
   req.session.avatar_hash = undefined
   res.clearCookie('user_token');
   res.send({ message: 'success' });
+});
+
+router.get('/balance', async (req, res) => {
+  if (req.cookies.user_token === undefined) {
+    return res.status(404).send({ message: 'not login' });
+  }
+  const session_data = SessionData(decryptToken(req.cookies.user_token));
+  try {
+    const user = await User.findOne({ _id: session_data.user_id }).select({ balance: 1 });
+    if (!user) {
+      return res.status(404).send({ message: 'user not found' });
+    }
+
+    res.send({ message: 'success', balance: user.balance });
+  }
+  catch(err) {
+    res.status(500).send({ message: 'error' });
+  }  
 });
 
 

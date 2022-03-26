@@ -3,7 +3,7 @@ import { Navbar, Nav, Button, Dropdown } from 'react-bootstrap';
 import genRandomToken from '../utils/genRandomToken';
 import { Login, Logout } from '../ajax/user';
 
-import '../static/styles/NavBar.css';
+import '../static/styles/NavigationBar.css';
 
 function NavigationBar(props) {
   const renderPlayerUtils = () => {
@@ -27,7 +27,7 @@ function NavigationBar(props) {
   const renderUserInfo = () => {
     if (props.userdata.user_id === null){
       const randomToken = genRandomToken(32);
-      const login_url = `https://discord.com/api/oauth2/authorize?response_type=code&client_id=${process.env.REACT_APP_DISCORD_CLIENT_ID}&scope=identify%20guilds&state=${randomToken}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&prompt=none`;
+      const login_url = `https://discord.com/api/oauth2/authorize?response_type=code&client_id=${process.env.REACT_APP_DISCORD_CLIENT_ID}&scope=identify%20guilds&state=${randomToken}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&prompt=consent`;
       return <a href={login_url}><Button variant="outline-success" className="my-2 my-sm-0" onClick={() => localStorage.setItem('oauth2_state', randomToken)}>登入</Button></a>;
     } else {
       const avatar_url = `https://cdn.discordapp.com/avatars/${props.userdata.user_id}/${props.userdata.avatar_hash}.png`;

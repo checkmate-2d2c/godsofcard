@@ -1,4 +1,4 @@
-.card-background-wrapper {
+.draw-background-wrapper {
     background: url(../images/cards/background.png) no-repeat center center fixed; ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -137,7 +137,7 @@
     font-weight: bold;
 }
 
-.card-pool-container {
+.draw-pool-container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -145,69 +145,69 @@
     margin-top: 10px;
 }
 
-.card-pool-container .events{
+.draw-pool-container .events{
     transform: scale(0.8);
 }
 
-.card-pool-container i {
+.draw-pool-container i {
     color: white;
     font-size: 30px;
     margin-left: 15px;
     margin-right: 15px;
 }
 
-.card-display-container {
+.draw-display-container {
     width:90%;
     height: auto;
     margin: auto;
     position: relative;
 }
 
-.card-display-container h4 {
+.draw-display-container h4 {
     text-align: center;
     color: white;
     width: 100%;
 }
 
-.card-display-container i {
+.draw-display-container i {
     color: white;
     font-size: 30px;
     top: 50%;
     position: absolute;
 }
 
-.card-display-container #left-arrow {
+.draw-display-container #left-arrow {
     left: 20px;
 }
-.card-display-container #right-arrow {
+.draw-display-container #right-arrow {
     right: 20px;
 }
 
-.card-display {
+.draw-display {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.card-display .left, .card-display .right, .card-display .center {
+.draw-display .left, .draw-display .right, .draw-display .center {
     width: 200px;
     height: auto;
     display: block;
 }
 
-.card-display .left, .card-display .right {
+.draw-display .left, .draw-display .right {
     opacity: 0.5;
     position: absolute;
 }
 
-.card-display .left {
+.draw-display .left {
     margin-left: -200px;
 }
-.card-display .right {
+.draw-display .right {
     margin-left: 200px;
 }
 
-.card-display .center {
+.draw-display .center {
     z-index: 3;
 }
 
@@ -259,7 +259,7 @@
     grid-template-rows: 85% 15%;
 }
 
-.card-container {
+.draw-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -267,12 +267,12 @@
     align-items: center;
 }
 
-.card-container img {
+.draw-container img {
     width: 30%;
     max-width: 450px
 }
 
-.card-container.ten {
+.draw-container.ten {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     width: 80%;
@@ -280,7 +280,7 @@
     row-gap: 20px;
 }
 
-.card-container.ten img {
+.draw-container.ten img {
     width: 60%;
     justify-self: center;
 }

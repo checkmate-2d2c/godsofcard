@@ -28,4 +28,12 @@ const Logout = async({ navigate, setUserdata }) => {
   navigate("/");
 };
 
-export { Login, Logout };
+const getBalance = async() => {
+  const { data: { message, balance } } = await axios.get(
+    `${process.env.REACT_APP_BACKEND_API}/user/balance`,
+    { withCredentials: true }
+  );
+  return message === 'success' ? balance : 0;
+};
+
+export { Login, Logout, getBalance };

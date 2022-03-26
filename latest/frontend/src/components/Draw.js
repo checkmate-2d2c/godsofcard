@@ -1,39 +1,31 @@
 import { useEffect, useState } from 'react';
 
-import { getCardsPool } from '../ajax/cards';
+import { getCardPools } from '../ajax/cards';
+import { getBalance } from '../ajax/user';
 
-import '../static/styles/Card.css';
+import '../static/styles/Draw.css';
 
-function Card() {
-  const [cardsList, setCardsList] = useState([]);
-  const [userBalance, setUserBalance] = useState(0);
-
-  const loadImage = async(imageName) => {
-    return await import(`../static/images/cards/events/${imageName}`);
-  };
+function Draw() {
+  const [cardPools, setCardPools] = useState([]);
+  const [cardPoolIndex, setCardPoolIndex] = useState(0);
+  const [balance, setBalance] = useState(0);
 
   useEffect(() => {
     (async() => {
-      const cardsPool = await getCardsPool();
-      cardsPool.cardsList = cardsPool.cardsList.map(async(card) => {
-        card.image = await loadImage(card.banner);
-        return card;
-      });
-      console.log(cardsPool);
-      setCardsList(cardsPool.cardsList);
-      setUserBalance(cardsPool.userBalance);
+      setCardPools(await getCardPools());
+      setBalance(await getBalance());
       window.scrollTo(0, 0);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="card-background-wrapper">
+    <div className="draw-background-wrapper">
       <div className="loading hide">
         <h1>Loading</h1>
       </div>
       <div id="content-container" className="">
-        <p style={{ color: 'white', right: '10px', position: 'absolute', marginTop: '10px' }} id="remaining">剩餘點數: {userBalance}pt</p>
+        <p style={{ color: 'white', right: '10px', position: 'absolute', marginTop: '10px' }} id="remaining">剩餘點數: {balance}pt</p>
         <div style={{ width: '100%', textAlign: 'center', color: 'white' }}>
           <h3>抽牌活動</h3>
           <div style={{ width: '10%', border: 'white 2px solid', margin: 'auto'}}></div>
@@ -41,7 +33,7 @@ function Card() {
 
         <div className="content-container">
           <div className="events">
-            {cardsList.map((card, index) => { return <img key={index} src={card.banner} alt="" /> ; })}
+            {cardPools.map(({ banner }, index) => { return <img key={index} src={banner} alt="" /> ; })}
           </div>
           <div className="cd-container">
             <br />
@@ -74,4 +66,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default Draw;

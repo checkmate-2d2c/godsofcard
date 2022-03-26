@@ -8,10 +8,10 @@ function Collection(props) {
   const [characterName, setCharacterName] = useState('');
   const [animeName, setAnimeName] = useState('');
   const [tierName, setTierName] = useState('');
-  const [cardsList, setCardsList] = useState([]);
+  const [cards, setCards] = useState([]);
 
   const applyFilter = () => {
-    const newCardsList = cardsList.map((card) => {
+    const newCards = cards.map((card) => {
       const nameMatch = characterName === '' ? true : card.name.toLowerCase().includes(String(characterName).toLowerCase());
       const animeMatch = animeName === '' ? true: card.anime.toLowerCase().includes(String(animeName).toLowerCase());
       const tierMatch = tierName === '' ? true : card.tier === tierName;
@@ -20,7 +20,7 @@ function Collection(props) {
       newCard.selected = match ? true : false;
       return newCard;
     });
-    setCardsList(newCardsList);
+    setCards(newCards);
   };
 
   useEffect(() => {
@@ -32,7 +32,9 @@ function Collection(props) {
       setCharacterName('');
       setAnimeName('');
       setTierName('');
-      setCardsList(await getCards(props.scope));
+      const newCards = await getCards(props.scope);
+      newCards.forEach(card => card.selected = true);
+      setCards(newCards);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.scope]);
@@ -61,7 +63,7 @@ function Collection(props) {
       </div>
       <br />
       <div className="card-display">
-        {cardsList.map(({ url, selected }, index) => selected ? <img key={index} src={url} alt="" /> : null)}
+        {cards.map(({ url, selected }, index) => selected ? <img key={index} src={url} alt="" /> : null)}
       </div>
       <br/>
     </>

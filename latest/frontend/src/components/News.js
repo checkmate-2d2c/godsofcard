@@ -27,8 +27,8 @@ function News(props) {
       </div>
       <br />
       <div className="news-container">
-        {newsList.map(({ id, title, date }, index) => {
-          const url = `/news/${id}`;
+        {newsList.map(({ _id, title, date }, index) => {
+          const url = `/news/${_id}`;
           return (
             <button key={index} onClick={() => props.navigate(url)}>
               <div className="content">

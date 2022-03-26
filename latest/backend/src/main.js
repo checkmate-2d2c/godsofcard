@@ -5,12 +5,18 @@ import cookies from 'cookie-parser';
 
 import genRandomToken from './utils/genRandomToken';
 
+import dbConnect from './databases/mongo';
+
 import apiRoute from './route';
+import adminApiRoute from './admin';
 
 dotenv.config();
 
 const app = express();
+const adminApp = express();
+
 const port = process.env.PORT || 48763;
+const adminPort = process.env.ADMIN_PORT || 5000;
 
 app.use(express.json());
 app.use(cookies());
@@ -34,3 +40,11 @@ app.use('/api', apiRoute);
 app.listen(port, () =>
   console.log(`Godsofcard backend app listening on port ${port}!`),
 );
+
+adminApp.use(express.urlencoded({ extended: true }));
+adminApp.use('/admin', adminApiRoute);
+adminApp.listen(adminPort, () =>
+  console.log(`Godsofcard admin app listening on port ${adminPort}!`),
+);
+
+dbConnect();

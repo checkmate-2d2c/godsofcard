@@ -3,6 +3,7 @@ import axios from 'axios';
 import dotenv from 'dotenv-defaults';
 import { encryptToken } from '../utils/userToken';
 import SessionData from '../structs/sessionData';
+import User from '../models/user';
 
 dotenv.config();
 
@@ -60,6 +61,15 @@ router.get('/', async(req, res) => {
   );
   Object.assign(req.session, session_data);
   console.log('Discord oauth2 success');
+
+  try {
+    const user = new User({ _id: session_data.user_id });
+    await user.save();
+  }
+  catch (err) {
+    console.log('user already exists');
+  }
+
   res.send({ message: 'success' });
 });
 

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 const cardUrls = ["https://drive.google.com/uc?id=1JI-73xU86K7bMOnJ9O23YET1lnPX_8BV", 
                   "https://drive.google.com/uc?id=1bW4IxxA6C5SJ9feP-SS5olC4YjMSeZOD"];
 
-function LatetestCard() {
+function LatestCard() {
   const [cards, setCards] = useState({ display: [], index: null });
   const defaultDisplayClassNames = ['left', 'middle', 'right'];
 
@@ -55,4 +55,4 @@ function LatetestCard() {
   );
 }
 
-export default LatetestCard;
+export default LatestCard;

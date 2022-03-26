@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import MainMenu from '../components/MainMenu';
 import News from '../components/News';
 import NewsPage from '../components/NewsPage';
-import Card from '../components/Card';
+import Draw from '../components/Draw';
 import Collection from '../components/Collection';
 import Community from '../components/Community';
 import Support from '../components/Support';
@@ -36,7 +36,7 @@ function MainFrame({ navigate }) {
         />
         <Route path="/news" element={<News navigate={navigate} />} />
         <Route path="/news/:id" element={<NewsPage navigate={navigate} />} />
-        <Route path="/card" element={<Card />} />
+        <Route path="/draw" element={<Draw />} />
         <Route path="/inventory" element={<Collection title="收藏" scope="user" />} />
         <Route path="/collection" element={<Collection title="圖鑑" scope="all" />} />
         <Route path="/community" element={<Community />} />
