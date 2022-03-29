@@ -17,10 +17,9 @@ router.get('/all', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  // This is a temporary solution. Data should be migrated to DB.
-  const newsId = req.params.id;
   try {
-    const news = await News.findOne({ _id: id });
+    const newsId = req.params.id;
+    const news = await News.findOne({ _id: newsId });
     if (!news) {
       return res.status(404).send({ message: 'news not found' });
     }

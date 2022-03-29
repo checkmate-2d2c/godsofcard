@@ -32,11 +32,11 @@ const cardPoolSchema = new Schema({
     required: true
   },
   start: {
-    type: String,
+    type: Number,
     required: true
   },
   expire: {
-    type: String,
+    type: Number,
     required: true
   },
   ten: {

@@ -30,7 +30,6 @@ function Community() {
         <a href="https://discord.gg/checkmatekuhaku"><input type="button" className="joinbutton" value="加入" /></a>
       </div>
       <br />
-      {/* 這邊之後會改設計，因此暫時讓她是疊起來的狀態沒關係 */}
       <div className="partner-container">
         {/* patern server 1 */}
         <div className="sub-invitebox virtualtransmissionbase">

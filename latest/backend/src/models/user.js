@@ -7,18 +7,16 @@ const userSchema = new Schema({
   _id: String,
   balance: {
     type: Number,
-    required: true,
+    required: function () { return this.balance >= 0; },
     default: 0
   },
   cards: {
     type: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Card,
-        required: true
+        type: Number,
+        ref: Card
       }
     ],
-    required: true,
     default: []
   }
 });

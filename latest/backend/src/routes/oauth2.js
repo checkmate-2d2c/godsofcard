@@ -41,36 +41,43 @@ async function getDiscordUser(code) {
 }
 
 router.get('/', async(req, res) => {
-  const discordUser = await getDiscordUser(req.query.code);
-  if (discordUser === null) {
-    return res.status(403).send({ message: 'error' });
-  }
-  const session_data = SessionData({
-    user_id: discordUser.id,
-    username: `${discordUser.username}#${discordUser.discriminator}`,
-    avatar_hash: discordUser.avatar
-  });
-  const user_token = encryptToken(session_data);
-  res.cookie(
-    'user_token', 
-    user_token, 
-    {
-      maxAge: 1000 * 60 * 15, // would expire after 15 minutes
-      sameSite: 'lax'
-    }
-  );
-  Object.assign(req.session, session_data);
-  console.log('Discord oauth2 success');
-
   try {
-    const user = new User({ _id: session_data.user_id });
-    await user.save();
-  }
-  catch (err) {
-    console.log('user already exists');
-  }
+    const discordUser = await getDiscordUser(req.query.code);
+    if (discordUser === null) {
+      return res.status(403).send({ message: 'error' });
+    }
+    const session_data = SessionData({
+      user_id: discordUser.id,
+      username: `${discordUser.username}#${discordUser.discriminator}`,
+      avatar_hash: discordUser.avatar
+    });
+    const user_token = encryptToken(session_data);
+    res.cookie(
+      'user_token', 
+      user_token, 
+      {
+        maxAge: 1000 * 60 * 60 * 24, // would expire after 1 day
+        sameSite: 'lax',
+        httpOnly: true,
+        overwrite: true
+      }
+    );
+    Object.assign(req.session, session_data);
+    console.log('Discord oauth2 success');
 
-  res.send({ message: 'success' });
+    try {
+      const user = new User({ _id: session_data.user_id });
+      await user.save();
+    }
+    catch (err) {
+      console.log('user already exists');
+    }
+
+    return res.send({ message: 'success' });
+  }
+  catch(err) {
+    res.status(500).send({ message: 'error' });
+  }
 });
 
 export default router;

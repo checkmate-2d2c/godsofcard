@@ -36,8 +36,8 @@ function MainFrame({ navigate }) {
         />
         <Route path="/news" element={<News navigate={navigate} />} />
         <Route path="/news/:id" element={<NewsPage navigate={navigate} />} />
-        <Route path="/draw" element={<Draw />} />
-        <Route path="/inventory" element={<Collection title="收藏" scope="user" />} />
+        <Route path="/draw" element={<Draw userdata={userdata} navigate={navigate} />} />
+        <Route path="/inventory" element={<Collection title="收藏" scope="user" userdata={userdata} navigate={navigate} />} />
         <Route path="/collection" element={<Collection title="圖鑑" scope="all" />} />
         <Route path="/community" element={<Community />} />
         <Route path="/support" element={<Support />} />

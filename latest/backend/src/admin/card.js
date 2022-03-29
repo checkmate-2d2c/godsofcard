@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   const tierDOM = ['<option value="">tier</option>'].concat(CardTierList.map(tier => `<option value="${tier}">${tier}</option>`));
   
   return res.send(`
-    <h1>Card</h1>
+    <h1>Latest Card</h1>
     <h2>Create</h2>
     <form action="/admin/card/create" method="POST" style="${style}">
       <input type="text" placeholder="_id" name="_id"/>

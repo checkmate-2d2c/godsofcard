@@ -15,16 +15,17 @@ function MainMenu(props) {
   const [splashClass, setSplashClass] = useState('splash');
 
   useEffect(() => {
-    setTimeout(() => {
+    const id = setTimeout(() => {
       setSplashClass(`${splashClass} display-none`);
       window.scrollTo(0, 0);
     }, 2000);
+    return () => clearTimeout(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <div className={splashClass}>       
+      <div className={splashClass} onClick={() => setSplashClass(`${splashClass} display-none`)}>
         <h3 className="fade-in">人生 それもただのゲーム 毎回つまんなそうに生い 何の意味があるの？</h3>
         <h3 className="fade-in">それより 全部手放して 周リある限り操ってみて　この世界の真の神にならない？</h3>
         <h2 className="fade-in">卡牌之神 God Of Card</h2>

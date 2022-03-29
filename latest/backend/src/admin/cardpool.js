@@ -24,6 +24,7 @@ router.get('/', async (req, res) => {
       <input type="text" placeholder="B" name="B"/>
       <input type="text" placeholder="C" name="C"/>
       <input type="text" placeholder="D" name="D"/>
+      <div><a href="https://www.epochconverter.com/">Unix Timestamp</a></div>
       <input type="text" placeholder="start" name="start"/>
       <input type="text" placeholder="expire" name="expire"/>
       <select name="ten">
@@ -50,6 +51,7 @@ router.get('/', async (req, res) => {
       <input type="text" placeholder="B" name="B"/>
       <input type="text" placeholder="C" name="C"/>
       <input type="text" placeholder="D" name="D"/>
+      <div><a href="https://www.epochconverter.com/">Unix Timestamp</a></div>
       <input type="text" placeholder="start" name="start"/>
       <input type="text" placeholder="expire" name="expire"/>
       <select name="ten">

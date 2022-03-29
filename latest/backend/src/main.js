@@ -15,7 +15,7 @@ dotenv.config();
 const app = express();
 const adminApp = express();
 
-const port = process.env.PORT || 48763;
+const port = process.env.PORT || 4000;
 const adminPort = process.env.ADMIN_PORT || 5000;
 
 app.use(express.json());

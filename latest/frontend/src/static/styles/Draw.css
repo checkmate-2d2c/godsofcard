@@ -11,20 +11,19 @@
     display: none !important;
 }
 
-.content-container {
+.draw-content-container {
     width: 100%;
     display: grid;
     grid-template-columns: 33% 33% 33%;
 }
 
-.content-container .events{
-    width: min-content;
-    height: 600px;
-    margin: auto;
-    overflow-y: auto;
+.draw-content-container .events{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.content-container .events img {
+.draw-content-container .events img {
     border-radius: 30px;
     transition: transform 0.2s linear;
     width: 300px;
@@ -32,20 +31,18 @@
     transform: scale(0.8);
 }
 
-.content-container .events img:hover {
-    transform: scale(1)
+.draw-content-container .events img:hover {
+    transform: scale(0.93);
+    cursor: pointer;
 }
 
-.content-container .cd-container {
+.draw-content-container .cd-container {
     display: flex;
     flex-direction: column;
     margin:auto;
 }
 
-.content-container .event_card_display{
-    position: relative;
-    width: 500px;
-    height: 600px;
+.draw-content-container .event_card_display{
     box-sizing: border-box;
     background: #232222;
     border-radius: 4px;
@@ -58,40 +55,29 @@
     justify-content: center;
 }
 
-.content-container .event_card_display img {
+.draw-content-container .event_card_display img {
     width: 80%;
-    align-self: center;
-    justify-self: center;
     z-index: 2;
 }
 
-.content-container .event_card_display h2 {
-    position: absolute;
-    align-self: center;
-    color: white;
-}
-
-.content-container .event_card_display .arrow-container {
-    width: 100%;
-    position: absolute;
+.draw-content-container .event_card_display .arrow-container {
     font-size: 40px;
     color: white;
-    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.content-container .event_card_display .arrow-container i {
-    position: absolute;
+.draw-content-container .event_card_display .arrow-container #left-nav {
     cursor: pointer;
+    user-select: none;
+}
+.draw-content-container .event_card_display .arrow-container #right-nav {
+    cursor: pointer;
+    user-select: none;
 }
 
-.content-container .event_card_display .arrow-container #left-nav {
-    margin-left: 20px;
-}
-.content-container .event_card_display .arrow-container #right-nav {
-    right: 20px;
-}
-
-.content-container .eventdetail{
+.draw-content-container .eventdetail{
     width: 500px;
     height: 300px;
     padding: 20px;
@@ -106,19 +92,18 @@
     background-color: #00000000;
 }
 
-.content-container .sb-container {
+.draw-content-container .sb-container {
+    display: flex;
+    margin-left: 50px;
+}
+
+.draw-content-container .sb-container .sb-container-inner {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    align-items: flex-start;
 }
 
-.content-container .draw1{
-    width: 20%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.content-container .draw-button button {
+.draw-content-container .draw-button button {
     width: 120px;
     height: 45px;
     box-sizing: border-box;
@@ -126,13 +111,14 @@
     border-radius: 4px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition-duration: 0.5s;
+    margin-right: 5px;
 }
 
-.content-container .draw-button button:hover{
-    transform: scale(1.2);
+.draw-content-container .draw-button button:hover{
+    transform: scale(1.1);
 }
 
-.content-container .eventdate{
+.draw-content-container .eventdate{
     color: white;
     font-weight: bold;
 }
@@ -229,13 +215,17 @@
 }
 
 .video-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    height: 100vh;
+    background-color: black;
+    z-index: 200;
+}
+
+.video-container:hover {
+    cursor: pointer;
 }
 
 .video-container video {
@@ -243,10 +233,41 @@
     color: white;
 }
 
-.video-container h1 {
-    color: white;
-    position: absolute;
-    align-self: center;
+.video-container .draw-anime-card-wrapper-single {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 201;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.video-container .draw-anime-card-wrapper-ten {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 201;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.video-container .draw-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container img {
+    width: 80%;
+    transition: all 0.5s ease;
+}
+
+.video-container img:hover {
+    transform: scale(1.1);
 }
 
 .cb-container {

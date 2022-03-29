@@ -3,44 +3,46 @@ import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 import { useEffect, useState } from 'react';
 
-// import pngs, this should be optimized then
-import event1 from '../static/images/cards/events/event1.png';
-import event2 from '../static/images/cards/events/event2.png';
+import '../static/styles/CardEvent.css';
 
-const eventUrls = [event1, event2];
+import { getCardPools } from '../ajax/cards';
 
 function CardEvent() {
-  const [events, setEvents] = useState({ display: [], index: null });
+  const [cardPools, setCardPools] = useState([]);
   const defaultDisplayClassNames = ['top', 'middle', 'bottom'];
 
-  const setDefaultEvents = () => {
+  const setDefaultEvents = (newCardPools) => {
     for (let i = 1; i < 3; i++) {
-      eventUrls[i] = eventUrls[i] === undefined ? eventUrls[i-1] : eventUrls[i];
+      newCardPools[i] = newCardPools[i] === undefined ? newCardPools[i-1] : newCardPools[i];
     }
 
-    const newDisplay = []
+    const newDisplay = [];
     defaultDisplayClassNames.forEach((value, index) => {
-      newDisplay.push({ src: eventUrls[(index + eventUrls.length - 1) % eventUrls.length], className: value });
+      newDisplay.push({ src: newCardPools[(index + newCardPools.length - 1) % newCardPools.length].banner, className: value });
     });
 
-    setEvents({ display: [...newDisplay], index: 0 });
+    setCardPools(newDisplay);
   };
 
   const moveEvents = (direction) => {
-    const moveDisplay = events.display.map(({ src, className }) => ({ src, className: `${className} move${direction}` }));
-    const newIndex = direction === 'U' ? 
-      (events.index + 1) % eventUrls.length :
-      (events.index + eventUrls.length - 1) % eventUrls.length;
-    const newDisplay = events.display.map((_, index) => ({ src: eventUrls[(newIndex + index + eventUrls.length - 1) % eventUrls.length], className: defaultDisplayClassNames[index]}));
-    setEvents({ display: moveDisplay });
+    const moveDisplay = cardPools.map(({ src, className }) => ({ src, className: `${className} move${direction}` }));
+    const moveDirection = direction === 'U' ? 1 : -1;
+    const newDisplay = cardPools.map((_, index) => ({ src: cardPools[(index + cardPools.length + moveDirection) % cardPools.length].src, className: defaultDisplayClassNames[index]}));
+    console.log(cardPools);
+    console.log(newDisplay);
+
+    setCardPools(moveDisplay);
     
     setTimeout(() => {
-      setEvents({ display: newDisplay, index: newIndex });
+      setCardPools(newDisplay);
     }, 200);
   };
 
   useEffect(() => {
-    setDefaultEvents();
+    (async () => {
+      const newCardPools = await getCardPools();
+      setDefaultEvents(newCardPools);
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -48,13 +50,13 @@ function CardEvent() {
     <>
       <div className="cardevent">
         <div style={{color: 'white'}}><FontAwesomeIcon icon={faCalendar} />&nbsp;卡池 Card Event</div>
-        <div className="arrow-container">
-          <FontAwesomeIcon icon={faChevronUp} id="top-nav" onClick={() => moveEvents('U')} />
+        <div className="arrow-container" style={{ color: 'white' }}>
+          <FontAwesomeIcon icon={faChevronUp} id="top-nav" className="cardevent-arrow" onClick={() => moveEvents('U')} />
           <br />
-          <FontAwesomeIcon icon={faChevronDown} id="bottom-nav" onClick={() => moveEvents('D')} />
+          <FontAwesomeIcon icon={faChevronDown} id="bottom-nav" className="cardevent-arrow" onClick={() => moveEvents('B')} />
         </div>
         <div className="card-event-container">
-          {events.display.map(({ src, className }, index) => <img key={index} src={src} alt="" className={className} />)}
+          {cardPools.map(({ src, className }, index) => <img key={index} src={src} alt="" className={className} />)}
         </div>
       </div>
     </>

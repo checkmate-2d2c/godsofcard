@@ -11,7 +11,7 @@ function NavigationBar(props) {
       return (
         <>
           <Nav.Item>
-            <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/card")}>抽卡</Nav.Link>
+            <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/draw")}>抽卡</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link onFocus={e => e.target.blur()} href="" onClick={() => props.navigate("/inventory")}>卡牌庫</Nav.Link>
